@@ -21,7 +21,6 @@ public class ProjectsPage {
         return new ProjectDetailsPage();
     }
 
-
     public void create(String projectName, String projectCode, String description,
                        String accessType, String memberAccess) {
         $("#createButton").click();
@@ -56,6 +55,5 @@ public class ProjectsPage {
         }
         $(byText("Create project")).click();
     }
-
 }
 

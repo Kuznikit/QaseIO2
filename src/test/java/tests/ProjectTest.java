@@ -10,6 +10,5 @@ public class ProjectTest extends BaseTest{
                 .open()
                 .login("kuznikit@gmail.com","Qazxcv123")
                 .create("qwe","12","qwe","Public", "Add members from specific group");
-
     }
 }

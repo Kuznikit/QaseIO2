@@ -1,22 +1,26 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import tests.DropDown;
-
+import models.ProjectDetails;
+import wrappers.DropDown;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
 
 public class ProjectDetailsPage {
-WebDriver driver;
-    public void createTestCase(String titleName, String status) {
-        $("#title").sendKeys(titleName);
-        $("#statusGroup").click();
-        $$(By.xpath("//div[contains(@class, 'css-2b097c-container')]")).findBy(Condition.text(status)).click();
+    public static String TITLE = "#title";
+
+    public ProjectDetailsPage selectingDropDownFields(ProjectDetails projectDetails) {
+        $(TITLE).sendKeys(projectDetails.getTitle());
+        new DropDown("statusGroup").select(projectDetails.getStatus());
+        //new DropDown("descriptionGroup").select(projectDetails.getDescription());
+        new DropDown("suiteGroup").select(projectDetails.getSuite());
+        new DropDown("severityGroup").select(projectDetails.getSeverity());
+        new DropDown("priorityGroup").select(projectDetails.getPriority());
+        new DropDown("typeGroup").select(projectDetails.getType());
+        new DropDown("layerGroup").select(projectDetails.getLayer());
+        new DropDown("is_flakyGroup").select(projectDetails.getIsFlaky());
+        new DropDown("milestoneGroup").select(projectDetails.getMilestone());
+        new DropDown("behaviorGroup").select(projectDetails.getBehavior());
+        new DropDown("automationStatusGroup").select(projectDetails.getAutomationStatus());
+        return this;
+
     }
-    //public void createDropDown (String status){
-    //    new DropDown(driver, "Status").select(status);
-    //}
 }

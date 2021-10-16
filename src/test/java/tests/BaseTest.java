@@ -16,7 +16,6 @@ public class BaseTest {
         Configuration.headless = false;
         //All clicks
         Configuration.clickViaJs = false;
-
     }
 
 }
